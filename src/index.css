@@ -7,17 +7,20 @@
 .container {
   width: 1000px;
   margin: 0 auto;
+  padding: 30px ;
 }
 
 img {
   width: 100%;
   aspect-ratio: 16/9;
   display: block;
+  border-radius: 40px;
 }
 
 .carousel {
   position: relative;
-  border: 1px solid black
+  border: 1px solid black;
+  border-radius:40px;
 }
 
 .carouselWrapper {
@@ -79,7 +82,7 @@ img {
 .slideBullets button {
   width: 30px;
   height: 10px;
-  background-color: gray;
+  background-color: rgb(246, 246, 246);
   border: none;
   cursor: pointer;
 }
