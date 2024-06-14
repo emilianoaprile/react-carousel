@@ -1,3 +1,7 @@
+import { IoIosArrowBack as Prev, IoIosArrowForward as Next } from "react-icons/io";
+
+
+
 function Slide({
   title,
   image,
@@ -25,10 +29,10 @@ function Slide({
               </div>
             </div>
             <button onClick={prevSlide} className="btn btnLeft">
-              prev
+              <Prev/>
             </button>
             <button onClick={nextSlide} className="btn btnRight">
-              next
+              <Next/>
             </button>
           </div>
           <div className="slideBullets">

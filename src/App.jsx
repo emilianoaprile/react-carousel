@@ -26,25 +26,33 @@ function App() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(true);
 
+  // autoloop
   useEffect(() => {
     const interval = setInterval(() => {
       if (animating) {
         nextSlide();
       }
     }, 3000);
-    return () => clearInterval(interval);
+    return () => {
+      if(interval) {
+        clearInterval(interval);
+      }
+    }
   }, [animating, activeIndex]);
 
+  // next slide fn
   const nextSlide = () => {
     const nextIndex = activeIndex === slides.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
   };
 
+  // prev slide fn
   const prevSlide = () => {
     const prevIndex = activeIndex === 0 ? slides.length - 1 : activeIndex - 1;
     setActiveIndex(prevIndex);
   };
 
+  // bullets animation
   const goToSlide = (index) => {
     setActiveIndex(index);
   };

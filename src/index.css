@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+body {
+  background-color: rgb(25, 24, 24);
+}
+
 .container {
   width: 1000px;
   margin: 0 auto;
@@ -28,7 +32,12 @@ img {
 }
 
 .btn {
-  cursor: pointer
+  cursor: pointer;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .btnLeft {
@@ -41,6 +50,7 @@ img {
   background: #000;
   color: #fff;
   text-align: center;
+  margin-left: 10px;
 }
 
 .btnRight {
@@ -53,6 +63,7 @@ img {
   background: #000;
   color: #fff;
   text-align: center;
+  margin-right: 10px;
 }
 
 .carouselItem {
