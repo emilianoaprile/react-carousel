@@ -1,4 +1,4 @@
-function Slide({title, image, text}) {
+function Slide({title, image, text, active, next, prev}) {
     return (
         <>
             <div className="carousel slide">

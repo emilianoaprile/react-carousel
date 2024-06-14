@@ -23,6 +23,18 @@ function App() {
     }
   ];
 
+  const [activeIndex, setActiveIndex] = useState(0);
+  const nextSlide = () => {
+    const nextIndex = activeIndex === 0 ? activeIndex + 1 : activeIndex
+    setActiveIndex(nextIndex)
+  }
+
+  const prevSlide = () => {
+    const prevIndex = activeIndex === 0 ? activeIndex - 1 : activeIndex - 1
+    setActiveIndex(prevIndex)
+  } 
+
+
   return (
     <>
       <div className="container">
@@ -32,6 +44,9 @@ function App() {
             title={slide.title}
             image={slide.image}
             text={slide.text}
+            active={index === activeIndex}
+            nextSlide={nextSlide}
+            prevSlide={prevSlide}
           />
         ))}
       </div>
