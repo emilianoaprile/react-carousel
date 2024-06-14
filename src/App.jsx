@@ -1,5 +1,5 @@
 import Slide from "./slide/Slide.jsx";
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 function App() {
   const slides = [
@@ -24,6 +24,22 @@ function App() {
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!animating) {
+        nextSlide()
+      }
+    }, 3000)
+    return () => {
+      if(interval) {
+        clearInterval(interval)
+      }
+    }
+  })
+
   const nextSlide = () => {
     const nextIndex = activeIndex === slides.length - 1 ? 0 : activeIndex + 1
     setActiveIndex(nextIndex)
@@ -53,6 +69,8 @@ function App() {
             prevSlide={prevSlide}
             goToSlide={goToSlide}
             totalSlides={slides}
+            onMouseEnter={() => setAnimating(false)}
+            onMouseLeave={() => setAnimating(true)}
           />
         ))}
       </div>

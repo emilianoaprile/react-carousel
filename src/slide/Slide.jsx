@@ -1,8 +1,19 @@
-function Slide({ title, image, text, activeIndex, nextSlide, prevSlide, goToSlide, totalSlides }) {
+function Slide({
+  title,
+  image,
+  text,
+  activeIndex,
+  nextSlide,
+  prevSlide,
+  goToSlide,
+  totalSlides,
+  onMouseEnter,
+  onMouseLeave
+}) {
   return (
     <>
       {activeIndex && (
-        <div className="carousel slide">
+        <div className="carousel slide" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
           <div className="carouselWrapper">
             <div className="carouselItem">
               <img src={image} alt="" />
@@ -22,8 +33,9 @@ function Slide({ title, image, text, activeIndex, nextSlide, prevSlide, goToSlid
           </div>
           <div className="slideBullets">
             {totalSlides.map((slide, index) => (
-              <button onClick={() => goToSlide(index)}
-              key={slide.id}
+              <button
+                onClick={() => goToSlide(index)}
+                key={slide.id}
                 type="button"
                 className=""
               ></button>
