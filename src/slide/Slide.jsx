@@ -7,13 +7,13 @@ function Slide({
   prevSlide,
   goToSlide,
   totalSlides,
-  onMouseEnter,
-  onMouseLeave
+  stopLoop,
+  startLoop
 }) {
   return (
     <>
       {activeIndex && (
-        <div className="carousel slide" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <div className="carousel slide" onMouseEnter={stopLoop} onMouseLeave={startLoop}>
           <div className="carouselWrapper">
             <div className="carouselItem">
               <img src={image} alt="" />

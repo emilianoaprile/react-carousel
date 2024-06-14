@@ -1,5 +1,5 @@
 import Slide from "./slide/Slide.jsx";
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from "react";
 
 function App() {
   const slides = [
@@ -20,46 +20,40 @@ function App() {
       title: "Slide 3",
       image: "/slide-3.jpg",
       text: "Slide tre",
-    }
+    },
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
-
+  const [animating, setAnimating] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!animating) {
-        nextSlide()
+      if (animating) {
+        nextSlide();
       }
-    }, 3000)
-    return () => {
-      if(interval) {
-        clearInterval(interval)
-      }
-    }
-  })
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [animating, activeIndex]);
 
   const nextSlide = () => {
-    const nextIndex = activeIndex === slides.length - 1 ? 0 : activeIndex + 1
-    setActiveIndex(nextIndex)
-  }
+    const nextIndex = activeIndex === slides.length - 1 ? 0 : activeIndex + 1;
+    setActiveIndex(nextIndex);
+  };
 
   const prevSlide = () => {
-    const prevIndex = activeIndex === 0 ? slides.length - 1 : activeIndex - 1
-    setActiveIndex(prevIndex)
-  } 
+    const prevIndex = activeIndex === 0 ? slides.length - 1 : activeIndex - 1;
+    setActiveIndex(prevIndex);
+  };
 
   const goToSlide = (index) => {
-    setActiveIndex(index)
-  }
-
+    setActiveIndex(index);
+  };
 
   return (
     <>
       <div className="container">
         {slides.map((slide, index) => (
-          <Slide 
+          <Slide
             key={slide.id}
             title={slide.title}
             image={slide.image}
@@ -69,8 +63,8 @@ function App() {
             prevSlide={prevSlide}
             goToSlide={goToSlide}
             totalSlides={slides}
-            onMouseEnter={() => setAnimating(false)}
-            onMouseLeave={() => setAnimating(true)}
+            stopLoop={() => setAnimating(false)}
+            startLoop={() => setAnimating(true)}
           />
         ))}
       </div>
