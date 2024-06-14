@@ -25,12 +25,12 @@ function App() {
 
   const [activeIndex, setActiveIndex] = useState(0);
   const nextSlide = () => {
-    const nextIndex = activeIndex === 0 ? activeIndex + 1 : activeIndex
+    const nextIndex = activeIndex === slides.length - 1 ? 0 : activeIndex + 1
     setActiveIndex(nextIndex)
   }
 
   const prevSlide = () => {
-    const prevIndex = activeIndex === 0 ? activeIndex - 1 : activeIndex - 1
+    const prevIndex = activeIndex === 0 ? slides.length - 1 : activeIndex - 1
     setActiveIndex(prevIndex)
   } 
 

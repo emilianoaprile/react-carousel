@@ -91,5 +91,13 @@ img {
   background-color: black;
 }
 
+.active {
+  display: block;
+}
+
+.d_none {
+  display: none;
+}
+
 
 
