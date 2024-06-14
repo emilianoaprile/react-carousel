@@ -34,6 +34,10 @@ function App() {
     setActiveIndex(prevIndex)
   } 
 
+  const goToSlide = (index) => {
+    setActiveIndex(index)
+  }
+
 
   return (
     <>
@@ -44,9 +48,11 @@ function App() {
             title={slide.title}
             image={slide.image}
             text={slide.text}
-            active={index === activeIndex}
+            activeIndex={index === activeIndex}
             nextSlide={nextSlide}
             prevSlide={prevSlide}
+            goToSlide={goToSlide}
+            totalSlides={slides}
           />
         ))}
       </div>
