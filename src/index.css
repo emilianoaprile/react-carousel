@@ -1,0 +1,87 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: block;
+}
+
+.carousel {
+  position: relative;
+  border: 1px solid black
+}
+
+.carouselWrapper {
+  position: relative;
+}
+
+.btnLeft {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.btnRight {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.carouselItem {
+  position: relative;
+}
+
+.carouselCaption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.slideBullets {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.slideBullets button {
+  width: 30px;
+  height: 10px;
+  background-color: gray;
+  border: none;
+}
+
+.slideBullets button.active {
+  background-color: black;
+}
+
+
+
